@@ -1,18 +1,16 @@
 <?php 
-if(isset($_POST['submit'])){
-    $to = "ameerasherin98@gmail.com"; // this is your Email address
-    $from = $_POST['email']; // this is the sender's Email address
-    $name = $_POST['name'];
-    // $last_name = $_POST['last_name'];
-    $subject = "Form submission";
-    $subject2 = "Copy of your form submission";
-    $message = $name . " wrote the following:" . "\n\n" . $_POST['message'];
+$subject = $_POST['name'];
+$to = "ameerasherin98@gmil.com";
+$from = $_POST['email'];
 
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers);
-    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
-    // You can also use header('Location: thank_you.php'); to redirect to another page.
-    }
+//data
+$msg = "Your MSG <br>\n";       
+
+//Headers
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=UTF-8\r\n";
+$headers .= "From: <".$from. ">" ;
+
+mail($to,$subject,$msg,$headers);
+echo "Mail Sent.";
 ?>
